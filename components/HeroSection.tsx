@@ -86,7 +86,7 @@ function HeroSection() {
                         {item.title}
                       </h2>
                       {/* Singer */}
-                      <p className="md:text-lg text-slate-300">{item.singer}</p>
+                      <p className="md:text-lg dark:text-slate-300 text-slate-600">{item.singer}</p>
                     </div>
                   </div>
                 </CardContent>
