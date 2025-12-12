@@ -39,7 +39,7 @@ const music = [
   },
 ];
 
-function HeroSection() {
+function MusicItem({ slideNumber }: { slideNumber: string }) {
   return (
     <Carousel
       opts={{
@@ -50,10 +50,7 @@ function HeroSection() {
     >
       <CarouselContent>
         {music.map((item, index) => (
-          <CarouselItem
-            key={index}
-            className="basis-[90%] md:basis-1/2 lg:basis-1/3 group"
-          >
+          <CarouselItem key={index} className={`group ${slideNumber}`}>
             <Link target="_blank" href={"/"}>
               <Card className="p-0 overflow-hidden bg-transparent border-0 shadow-none rounded-md">
                 <CardContent className="w-full md:h-[40vh] h-[35vh] flex flex-col gap-1.5 items-center justify-center p-0">
@@ -67,15 +64,15 @@ function HeroSection() {
                     >
                       <Button
                         variant={"default"}
-                        className="rounded-full xl:w-12 lg:w-10 xl:h-12 lg:h-10 md:w-8 md:h-8 w-6 h-6 cursor-pointer"
+                        className="rounded-full xl:w-10 lg:w-9 xl:h-10 lg:h-9 md:w-7 md:h-7 w-5 h-5 cursor-pointer"
                       >
                         <Play />
                       </Button>
-                                 <Button
+                      <Button
                         variant={"default"}
-                        className="rounded-full xl:w-12 lg:w-10 xl:h-12 lg:h-10 md:w-8 md:h-8 w-6 h-6 cursor-pointer"
+                        className="rounded-full xl:w-10 lg:w-9 xl:h-10 lg:h-9 md:w-7 md:h-7 w-5 h-5 cursor-pointer"
                       >
-                       <EllipsisVertical />
+                        <EllipsisVertical />
                       </Button>
                     </div>
                   </div>
@@ -86,7 +83,9 @@ function HeroSection() {
                         {item.title}
                       </h2>
                       {/* Singer */}
-                      <p className="md:text-lg dark:text-slate-300 text-slate-600">{item.singer}</p>
+                      <p className="md:text-lg dark:text-slate-300 text-slate-600">
+                        {item.singer}
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -101,4 +100,4 @@ function HeroSection() {
   );
 }
 
-export default HeroSection;
+export default MusicItem;
